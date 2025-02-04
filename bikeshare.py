@@ -84,8 +84,7 @@ def load_data(city, month, day):
 # filter by month if applicable
     if month != 'all':
 # use the index of the months list to get the corresponding int
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months.index(month.lower()) + 1
+        month = MONTH_DATA.index(month.lower()) + 1
         
 # filter by month to create the new dataframe
     df = df[df['month'] == month]
@@ -182,7 +181,7 @@ def user_stats(df, city):
 
     # Display counts of user types
     user_types = df['User Type'].value_counts()
-    print(f'The user types for filtered data is: {user_types}')
+    print(f'User Types: {user_types}')
 
     # Display counts of gender
     if city.lower() in ['chicago', 'new york city']:
